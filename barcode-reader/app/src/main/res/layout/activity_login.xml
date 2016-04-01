@@ -7,22 +7,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.mma.livestockmanager.LoginActivity">
+    tools:context="com.example.mma.livestockmanager.LoginActivity"
+    android:background="@drawable/lock_screen_image">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextUsername"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="143dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:contentDescription="Username"
         android:hint="Username"
         android:maxLines="1"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView4"
+        android:layout_alignEnd="@+id/textView4" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -30,24 +32,32 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/editTextPassword"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/editTextUsername"
-        android:layout_alignRight="@+id/editTextUsername"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:hint="Password"
         android:maxLines="1"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:layout_below="@+id/editTextUsername"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/editTextUsername"
+        android:layout_alignEnd="@+id/editTextUsername" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/buttonLogin"
+        android:onClick="Login"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="78dp"
-        android:onClick="Login"/>
+        android:layout_alignRight="@+id/textViewInvalidEntry"
+        android:layout_alignEnd="@+id/textViewInvalidEntry"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/button_bg_stroke"
+        android:textColor="#ffffff"
+        android:textSize="25sp"/>
+        <!--android:background="@android:color/transparent"/>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +72,33 @@
         android:layout_alignRight="@+id/editTextPassword"
 
 
-        
+
         android:visibility="invisible"
         android:textColor="#ff0000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Livestock Management App"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Login"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
 </RelativeLayout>

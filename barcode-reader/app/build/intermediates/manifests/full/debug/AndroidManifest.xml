@@ -37,7 +37,7 @@
         android:icon="@drawable/icon"
         android:label="Livestock Manager"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat" >
+        android:theme="@style/Theme.AppCompat.Light" >
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -47,7 +47,8 @@
 
         <activity
             android:name="com.google.android.gms.samples.vision.barcodereader.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" >
 
             <!-- <intent-filter> -->
             <!-- &lt;!&ndash;<action android:name="android.intent.action.MAIN" />&ndash;&gt; -->
@@ -58,7 +59,7 @@
         </activity>
         <activity
             android:name="com.google.android.gms.samples.vision.barcodereader.BarcodeCaptureActivity"
-            android:label="Read Barcode" />
+            android:label="Scan Barcode" />
         <activity android:name="com.google.android.gms.samples.vision.barcodereader.Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -66,12 +67,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.google.android.gms.samples.vision.barcodereader.SelectActivity" />
-        <activity android:name="com.google.android.gms.samples.vision.barcodereader.AddInformation" />
-        <activity android:name="com.google.android.gms.samples.vision.barcodereader.RetrieveInformation" />
-        <activity android:name="com.google.android.gms.samples.vision.barcodereader.Inventory" />
-        <activity android:name="com.google.android.gms.samples.vision.barcodereader.Modify" />
-        <activity android:name="com.google.android.gms.samples.vision.barcodereader.Profile" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.SelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.AddInformation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.RetrieveInformation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.Inventory"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.Modify"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.Profile"
+            android:screenOrientation="portrait" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

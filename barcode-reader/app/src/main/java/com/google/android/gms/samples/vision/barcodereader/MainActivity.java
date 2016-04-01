@@ -14,13 +14,19 @@
  * limitations under the License.
  */
 
+/*
+*
+* This activity is used for the adding of animals, and scanning of existing animals.
+*
+*
+* */
 package com.google.android.gms.samples.vision.barcodereader;
 
-import android.content.ContentValues;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Color;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
@@ -54,7 +60,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     String readBarcode;
 
-    EditText editTextWeight;
     TextView textViewError;
 
     Button buttonAddAnimal;
@@ -80,8 +85,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         textViewError = (TextView) findViewById(R.id.textViewError);
 
         buttonAddAnimal.setVisibility(Button.INVISIBLE);
-
-
 
         findViewById(R.id.read_barcode).setOnClickListener(this);
     }
@@ -161,16 +164,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             if (checkNumber()){
                 // already in db!
-                Toast.makeText(getApplicationContext(), "Item already in db", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Animal already in inventory!", Toast.LENGTH_SHORT).show();
 
-                // TODO: show information about animal if coming through scan eartag option
+
                 Bundle extras = getIntent().getExtras();
                 if (extras != null) {
-                    String yesno = extras.getString("scan_tag");
 
-                    // TODO: Redirect to activity, and bundle the data to it
 
-                    // get data from db about existing db
+
+                    // get data from db about existing animal
                     livestock = getLivestock(readBarcode);
 
                     // redirect to activity
@@ -239,39 +241,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             @Override
             public void run() {
 
-                FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
-                SQLiteDatabase db = mDbHelper.getReadableDatabase();
-
-
-
-                String selectQuery = "SELECT  * FROM " + FeedReaderContract.FeedEntry.TABLE_NAME + " WHERE " + FeedReaderContract.FeedEntry.COLUMN_NAME_BARCODE + "=\"" + receivedBarcode  + "\";";
-                Cursor cursor = db.rawQuery(selectQuery, null);
-
-
-
-                if (cursor.moveToFirst()) {
-
-                    livestock.db_id = cursor.getInt(0);
-                    livestock.barcode = cursor.getString(1);
-                    livestock.weight = cursor.getString(2);
-                    livestock.animal_id = cursor.getString(3);
-                    livestock.type = cursor.getString(4);
-                    livestock.sex = cursor.getString(5);
-                    livestock.status = cursor.getString(6);
-                    livestock.location = cursor.getString(7);
-                    livestock.sire = cursor.getString(8);
-                    livestock.dam = cursor.getString(9);
-                    livestock.birthDate = cursor.getString(10);
-
-
-
-
-                }
-
-                cursor.close();
-                db.close();
-
-
+                livestock.getLivestockFromBarcode(getApplicationContext(), receivedBarcode);
 
             }
         });

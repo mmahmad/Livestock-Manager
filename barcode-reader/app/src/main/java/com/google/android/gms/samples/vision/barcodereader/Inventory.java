@@ -149,6 +149,8 @@ public class Inventory extends Activity {
 
     private List<Livestock> getData(){
 
+
+
         final List<Livestock> allLivestock = new ArrayList<Livestock>();
 
         runOnUiThread(new Runnable() {

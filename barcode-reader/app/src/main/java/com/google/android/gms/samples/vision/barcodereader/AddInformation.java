@@ -76,15 +76,6 @@ public class AddInformation extends Activity {
             @Override
             public void run() {
 
-//                if (editTextWeight.getText().toString().equals("")) {
-//
-//                    textViewError.setVisibility(TextView.VISIBLE);
-//                    textViewError.setTextColor(Color.RED);
-//                    textViewError.setText("Enter weight!");
-//                    return;
-//
-//                }
-
 
                 String animalId = editTextAnimalId.getText().toString();
                 String Eartag = readBarcode; // barcode
@@ -96,6 +87,13 @@ public class AddInformation extends Activity {
                 String animalSire = editTextSire.getText().toString();
                 String animalDam = editTextDam.getText().toString();
                 String animalBirthDate = editTextBirthDate.getText().toString();
+
+                // first check if another animal with same animal_id exists. if so, request another one
+
+                if (Livestock.checkLivestockFromAnimaId(getApplicationContext(), animalId)){
+                    Toast.makeText(getApplicationContext(), "ANIMAL_ID already exists. Please try another one.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
                 // Gets the data repository in write mode
@@ -127,7 +125,7 @@ public class AddInformation extends Activity {
                         null,
                         values);
 
-                Toast.makeText(getApplicationContext(), "New data entered with row id: " + newRowId, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "New animal entered into inventory: " + animalId, Toast.LENGTH_SHORT).show();
 
                 db.close();
             }

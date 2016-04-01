@@ -25,7 +25,10 @@
                 android:layout_weight="1"
                 android:text="Profile"
                 android:id="@+id/buttonProfile"
-                android:onClick="buttonProfile"/>
+                android:onClick="buttonProfile"
+                android:drawableTop="@drawable/profile_icon"
+                android:background="#ffffff"
+                android:textColor="#000000"/>
 
             <Button
                 android:layout_width="0dip"
@@ -33,7 +36,10 @@
                 android:layout_weight="1"
                 android:text="Add Animal"
                 android:id="@+id/buttonAddAnimal"
-                android:onClick="buttonAddAnimal"/>
+                android:onClick="buttonAddAnimal"
+                android:drawableTop="@drawable/add_animal_icon2"
+                android:background="#ffffff"
+                android:textColor="#000000"/>
         </LinearLayout>
 
         <LinearLayout
@@ -48,7 +54,10 @@
                 android:layout_weight="1"
                 android:text="Scan Ear-Tag"
                 android:id="@+id/buttonScanEarTag"
-                android:onClick="ScanEartag"/>
+                android:onClick="ScanEartag"
+                android:drawableTop="@drawable/ear_tag_icon"
+                android:background="#ffffff"
+                android:textColor="#000000"/>
 
             <Button
                 android:layout_width="0dip"
@@ -56,7 +65,10 @@
                 android:layout_weight="1"
                 android:text="LiveStock Inventory"
                 android:id="@+id/buttonLivestockInventory"
-                android:onClick="buttonGetInventory"/>
+                android:onClick="buttonGetInventory"
+                android:drawableTop="@drawable/add_animal_icon"
+                android:background="#ffffff"
+                android:textColor="#000000"/>
         </LinearLayout>
 
         <LinearLayout
@@ -70,7 +82,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Injections"
-                android:id="@+id/buttonInjections"/>
+                android:id="@+id/buttonInjections"
+                android:drawableTop="@drawable/injection_icon"
+                android:background="#ffffff"
+                android:textColor="#000000"/>
 
             <Button
                 android:layout_width="0dip"
@@ -78,7 +93,10 @@
                 android:layout_weight="1"
                 android:text="Logout"
                 android:id="@+id/buttonLogout"
-                android:onClick="Logout"/>
+                android:onClick="Logout"
+                android:drawableTop="@drawable/logout_icon"
+                android:background="#ffffff"
+                android:textColor="#000000"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

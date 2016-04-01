@@ -2,6 +2,7 @@ package com.google.android.gms.samples.vision.barcodereader;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,8 @@ public class SelectActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
+
+        getWindow().getDecorView().setBackgroundColor(Color.WHITE);
 
         buttonProfile = (Button) findViewById(R.id.buttonProfile);
         buttonAddAnimal = (Button) findViewById(R.id.buttonAddAnimal);
@@ -49,12 +52,12 @@ public class SelectActivity extends Activity {
 
     }
 
-//    public void buttonProfile(View view){
-//
-//        Intent goToNextActivity = new Intent(getApplicationContext(), Profile.class);
-//        startActivity(goToNextActivity);
-//
-//    }
+    public void buttonProfile(View view){
+
+        Intent goToNextActivity = new Intent(getApplicationContext(), Profile.class);
+        startActivity(goToNextActivity);
+
+    }
 
     public void buttonAddAnimal(View view){
 

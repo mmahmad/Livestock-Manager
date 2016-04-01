@@ -14,7 +14,7 @@
         android:icon="@drawable/icon"
         android:label="Livestock Manager"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/Theme.AppCompat.Light">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -24,7 +24,8 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main">
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait">
 
             <!-- <intent-filter> -->
             <!-- &lt;!&ndash;<action android:name="android.intent.action.MAIN" />&ndash;&gt; -->
@@ -35,7 +36,7 @@
         </activity>
         <activity
             android:name=".BarcodeCaptureActivity"
-            android:label="Read Barcode" />
+            android:label="Scan Barcode" />
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,12 +44,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SelectActivity" />
-        <activity android:name=".AddInformation" />
-        <activity android:name=".RetrieveInformation" />
-        <activity android:name=".Inventory" />
-        <activity android:name=".Modify" />
-        <activity android:name=".Profile"></activity>
+        <activity
+            android:name=".SelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AddInformation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RetrieveInformation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Inventory"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Modify"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Profile"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

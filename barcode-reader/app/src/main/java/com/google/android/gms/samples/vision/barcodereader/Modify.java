@@ -102,7 +102,7 @@ public class Modify extends Activity {
     public void updateData(View view){
         // gather new data.
 
-        final int animal_dbId = currentLivestock.db_id;
+        final int animal_dbId = currentLivestock.db_id; // to be checked later
         final String animalId = editTextAnimalId.getText().toString();
         final String Eartag = textViewEartag.getText().toString(); // barcode
         final String animalType = editTextAnimalType.getText().toString();
@@ -114,48 +114,55 @@ public class Modify extends Activity {
         final String animalDam = editTextDam.getText().toString();
         final String animalBirthDate = editTextBirthDate.getText().toString();
 
+        final Livestock updatedLivestock = new Livestock();
+        updatedLivestock.db_id = animal_dbId;
+        updatedLivestock.animal_id = animalId;
+        updatedLivestock.barcode = Eartag;
+        updatedLivestock.type = animalType;
+        updatedLivestock.sex = animalSex;
+        updatedLivestock.status = animalStatus;
+        updatedLivestock.location = animalLocation;
+        updatedLivestock.weight = animalWeight;
+        updatedLivestock.sire = animalSire;
+        updatedLivestock.dam = animalDam;
+        updatedLivestock.birthDate = animalBirthDate;
+
         // update sqlite
 
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
 
-                FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(getApplicationContext());
-                // Gets the data repository in write mode
+                // make sure new animal_id isn't already present in db
+
+                if (Livestock.checkLivestockFromAnimaId(getApplicationContext(),updatedLivestock.animal_id)){
+                    Toast.makeText(getApplicationContext(), "ANIMAL_ID already exists. Please try another one.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                updatedLivestock.updateDb(getApplicationContext());
+                Toast.makeText(getApplicationContext(), "Updated record.", Toast.LENGTH_SHORT).show();
 
 
-                ContentValues values = new ContentValues();
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_ID, animalId);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_BARCODE, Eartag);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_TYPE, animalType);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_SEX, animalSex);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_STATUS, animalStatus);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_LOCATION, animalLocation);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_WEIGHT, animalWeight);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_SIRE, animalSire);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_DAM, animalDam);
-                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_BIRTH_DATE, animalBirthDate);
 
-
-                SQLiteDatabase db = mDbHelper.getWritableDatabase();
-                db.update(FeedReaderContract.FeedEntry.TABLE_NAME, values, FeedReaderContract.FeedEntry._ID + "=" + animal_dbId, null);
-
-//                String sql = "UPDATE " + FeedReaderContract.FeedEntry.TABLE_NAME + " SET " +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_BARCODE + "=\"" + Eartag + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_WEIGHT + "=\"" + animalWeight + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_ID + "=\"" + animalId + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_TYPE + "=\"" + animalType + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_SEX + "=\"" + animalSex + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_STATUS + "=\"" + animalStatus + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_LOCATION + "=\"" + animalLocation + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_SIRE + "=\"" + animalSire + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_DAM + "=\"" + animalDam + "\"" + "," +
-//                        FeedReaderContract.FeedEntry.COLUMN_NAME_BIRTH_DATE + "=\"" + animalBirthDate + "\" " +
-//                        "WHERE " + FeedReaderContract.FeedEntry._ID + "=\"" + animal_dbId  + "\"";
-
-
-                Toast.makeText(getApplicationContext(), "Updated table.", Toast.LENGTH_SHORT).show();
-                db.close();
+//                ContentValues values = new ContentValues();
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_ID, animalId);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_BARCODE, Eartag);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_TYPE, animalType);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_SEX, animalSex);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_STATUS, animalStatus);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_LOCATION, animalLocation);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_WEIGHT, animalWeight);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_SIRE, animalSire);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_DAM, animalDam);
+//                values.put(FeedReaderContract.FeedEntry.COLUMN_NAME_BIRTH_DATE, animalBirthDate);
+//
+//
+//                SQLiteDatabase db = mDbHelper.getWritableDatabase();
+//                db.update(FeedReaderContract.FeedEntry.TABLE_NAME, values, FeedReaderContract.FeedEntry._ID + "=" + animal_dbId, null);
+//
+//                Toast.makeText(getApplicationContext(), "Updated table.", Toast.LENGTH_SHORT).show();
+//                db.close();
 
             }
         });

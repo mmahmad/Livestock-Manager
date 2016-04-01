@@ -28,7 +28,11 @@
         android:layout_marginTop="110dp"
         android:layout_alignRight="@+id/status_message"
         android:layout_alignEnd="@+id/status_message"
-        android:text="Barcode text appears here"/>
+        android:text="Barcode text appears here"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textIsSelectable="true"
+        android:textStyle="italic"/>
 
     <Button
         android:layout_width="wrap_content"

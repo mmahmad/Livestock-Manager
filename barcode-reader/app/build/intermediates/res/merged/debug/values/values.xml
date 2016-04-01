@@ -347,7 +347,7 @@
     <string name="auto_focus">Auto Focus</string>
     <string name="barcode_error">"Error reading barcode: %1$s"</string>
     <string name="barcode_failure">No barcode captured</string>
-    <string name="barcode_header">Click "Read Barcode" to read a barcode</string>
+    <string name="barcode_header">Tap "Read Barcode" to read a barcode</string>
     <string name="barcode_success">Barcode read successfully</string>
     <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/8.1.0/res/values/cast_strings.xml -->
     <eat-comment/>
@@ -425,7 +425,7 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="title_activity_main">Barcode Reader Sample</string>
+    <string name="title_activity_main">Scan barcode</string>
     <string name="use_flash">Use Flash</string>
     <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.1.0/res/values/wallet_strings.xml -->
     <eat-comment/>
