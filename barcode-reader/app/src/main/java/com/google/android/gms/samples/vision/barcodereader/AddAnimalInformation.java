@@ -43,7 +43,7 @@ public class AddAnimalInformation extends AppCompatActivity implements View.OnCl
     String mCurrentPhotoPath;
     Uri currentImageURI;
     String readBarcode;
-   
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
