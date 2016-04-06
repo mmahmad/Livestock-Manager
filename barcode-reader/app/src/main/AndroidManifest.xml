@@ -3,9 +3,14 @@
     package="com.google.android.gms.samples.vision.barcodereader"
     android:installLocation="auto">
 
-    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true"/>
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18"/>
+
+
 
     <application
         android:allowBackup="true"
@@ -37,7 +42,9 @@
         <activity
             android:name=".BarcodeCaptureActivity"
             android:label="Scan Barcode" />
-        <activity android:name=".Login">
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,6 +69,18 @@
         <activity
             android:name=".Profile"
             android:screenOrientation="portrait" />
+        <activity android:name=".Injections" />
+        <activity android:name=".AddInjection" />
+        <activity android:name=".ModifyInjection" />
+        <activity
+            android:name=".AddAnimalInformation"
+            android:label="@string/title_activity_add_animal_information"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.google.android.gms.samples.vision.barcodereader.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

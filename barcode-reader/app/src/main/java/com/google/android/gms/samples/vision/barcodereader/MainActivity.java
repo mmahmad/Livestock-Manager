@@ -188,7 +188,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             } else {
                 // send eartag to data-entry activity, called activity_add_information
 
-                Intent goToNextActivity = new Intent(getApplicationContext(), AddInformation.class);
+//                Intent goToNextActivity = new Intent(getApplicationContext(), AddInformation.class);
+//                goToNextActivity.putExtra("readBarcode", readBarcode);
+//                startActivity(goToNextActivity);
+
+                Intent goToNextActivity = new Intent(getApplicationContext(), AddAnimalInformation.class);
                 goToNextActivity.putExtra("readBarcode", readBarcode);
                 startActivity(goToNextActivity);
 

@@ -21,7 +21,7 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
                     FeedReaderContract.FeedEntry.COLUMN_NAME_BARCODE + TEXT_TYPE + COMMA_SEP +
                     FeedReaderContract.FeedEntry.COLUMN_NAME_WEIGHT + TEXT_TYPE + COMMA_SEP +
                     FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_ID + TEXT_TYPE + COMMA_SEP +
-                    FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_TYPE + TEXT_TYPE + COMMA_SEP +
+                    FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_TYPE + TEXT_TYPE + " DEFAULT \"NULL\"" + COMMA_SEP +
                     FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_SEX + TEXT_TYPE + COMMA_SEP +
                     FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_STATUS + TEXT_TYPE + COMMA_SEP +
                     FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_LOCATION + TEXT_TYPE + COMMA_SEP +

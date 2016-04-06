@@ -202,6 +202,35 @@ public class Livestock implements Serializable{
 
     }
 
+    public static List<String> getAllAnimalIds(Context applicationContext){
+
+        List<String> allAnimalIds = new ArrayList<String>();
+
+        FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(applicationContext);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        String selectQuery = "SELECT " + FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_ID + " FROM " + FeedReaderContract.FeedEntry.TABLE_NAME;
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+
+
+                allAnimalIds.add(cursor.getString(0));
+
+                //Toast.makeText(getApplicationContext(), "Data received from db: " + livestock.db_id + " barcode text: " + livestock.animal_id, Toast.LENGTH_SHORT).show();
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return allAnimalIds;
+
+
+
+    }
+
 
 
 

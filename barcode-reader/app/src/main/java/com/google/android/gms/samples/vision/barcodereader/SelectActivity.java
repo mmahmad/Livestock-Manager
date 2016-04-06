@@ -73,4 +73,10 @@ public class SelectActivity extends Activity {
 
     }
 
+    public void goToInjection(View view){
+
+        Intent goToNextActivity = new Intent(getApplicationContext(), Injections.class);
+        startActivity(goToNextActivity);
+
+    }
 }

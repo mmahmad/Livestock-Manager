@@ -24,6 +24,12 @@
     <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+    <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="ColorPrimary">#FF5722</color>
+    <color name="ColorPrimaryDark">#E64A19</color>
+    <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
+    <eat-comment/>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
@@ -271,6 +277,11 @@
     <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
+    <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
+    <eat-comment/>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
@@ -425,6 +436,7 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="title_activity_add_animal_information">AddAnimalInformation</string>
     <string name="title_activity_main">Scan barcode</string>
     <string name="use_flash">Use Flash</string>
     <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.1.0/res/values/wallet_strings.xml -->
@@ -436,6 +448,11 @@
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
+    <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
+    <eat-comment/>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
         <item name="listLayout">@layout/abc_select_dialog_material</item>
@@ -1461,6 +1478,11 @@
         <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
     </style>
     <style name="Platform.Widget.AppCompat.Spinner" parent="android:Widget.Spinner"/>
+    <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <!-- From: file:/D:/android-vision-master/android-vision-master/visionSamples/barcode-reader/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
+    <eat-comment/>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="Base.DialogWindowTitle.AppCompat">
     </style>
     <style name="RtlOverlay.Widget.AppCompat.ActionBar.TitleItem" parent="android:Widget">

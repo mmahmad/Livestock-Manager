@@ -28,12 +28,12 @@ public class Inventory extends Activity {
 
 
 
-        List<Livestock> allLivestock = getData(); // get all data from db
-        List<String> liveStockBarcodes = new ArrayList<String>(); // storing all animal_ids
+        List<String> allLivestockAnimalIds = getAnimalIds(); // get all data from db
+        //List<String> liveStockBarcodes = new ArrayList<String>(); // storing all animal_ids
 
-        for (int i = 0; i < allLivestock.size(); i++){
-            liveStockBarcodes.add(allLivestock.get(i).animal_id);
-        }
+//        for (int i = 0; i < allLivestock.size(); i++){
+//            liveStockBarcodes.add(allLivestock.get(i).animal_id);
+//        }
 //
 //        liveStockBarcodes.add("lol");
 //        liveStockBarcodes.add("lol");
@@ -42,7 +42,7 @@ public class Inventory extends Activity {
 
         // populate barcodes into UI listView
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, liveStockBarcodes);
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allLivestockAnimalIds);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,12 +91,12 @@ public class Inventory extends Activity {
 
 
 
-            List<Livestock> allLivestock = getData(); // get all data from db
-            List<String> liveStockBarcodes = new ArrayList<String>(); // storing all animal_ids
+            List<String> allLivestockAnimalIds = getAnimalIds(); // get all data from db
+            //List<String> liveStockBarcodes = new ArrayList<String>(); // storing all animal_ids
 
-            for (int i = 0; i < allLivestock.size(); i++){
-                liveStockBarcodes.add(allLivestock.get(i).animal_id);
-            }
+//            for (int i = 0; i < allLivestockAnimalIds.size(); i++){
+//                liveStockBarcodes.add(allLivestock.get(i).animal_id);
+//            }
 //
 //        liveStockBarcodes.add("lol");
 //        liveStockBarcodes.add("lol");
@@ -105,7 +105,7 @@ public class Inventory extends Activity {
 
             // populate barcodes into UI listView
 
-            arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, liveStockBarcodes);
+            arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allLivestockAnimalIds);
             listView.setAdapter(arrayAdapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -147,11 +147,12 @@ public class Inventory extends Activity {
         }
     }
 
-    private List<Livestock> getData(){
+    private List<String> getAnimalIds(){
 
 
 
         final List<Livestock> allLivestock = new ArrayList<Livestock>();
+        final List<String> allLivestockAnimalIds = new ArrayList<>();
 
         runOnUiThread(new Runnable() {
 
@@ -164,27 +165,33 @@ public class Inventory extends Activity {
 
 
 
-                String selectQuery = "SELECT  * FROM " + FeedReaderContract.FeedEntry.TABLE_NAME;
+                //String selectQuery = "SELECT  * FROM " + FeedReaderContract.FeedEntry.TABLE_NAME;
+                // TODO: 4/3/2016 Group by animal_type
+//                String selectQuery = "SELECT " + FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_ID + ", " + FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_TYPE + " FROM " + FeedReaderContract.FeedEntry.TABLE_NAME + " GROUP BY " + FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_TYPE;
+                String selectQuery = "SELECT " + FeedReaderContract.FeedEntry.COLUMN_NAME_ANIMAL_ID + " FROM " + FeedReaderContract.FeedEntry.TABLE_NAME;
                 Cursor cursor = db.rawQuery(selectQuery, null);
+                // SELECT animal_id, animal_type FROM livestocktable GROUP BY animal_type
 
 
 
                 if (cursor.moveToFirst()) {
                     do {
-                        Livestock livestock = new Livestock();
-                        livestock.db_id = cursor.getInt(0);
-                        livestock.barcode = cursor.getString(1);
-                        livestock.weight = cursor.getString(2);
-                        livestock.animal_id = cursor.getString(3);
-                        livestock.type = cursor.getString(4);
-                        livestock.sex = cursor.getString(5);
-                        livestock.status = cursor.getString(6);
-                        livestock.location = cursor.getString(7);
-                        livestock.sire = cursor.getString(8);
-                        livestock.dam = cursor.getString(9);
-                        livestock.birthDate = cursor.getString(10);
+//                        Livestock livestock = new Livestock();
+//                        livestock.db_id = cursor.getInt(0);
+//                        livestock.barcode = cursor.getString(1);
+//                        livestock.weight = cursor.getString(2);
+//                        livestock.animal_id = cursor.getString(3);
+//                        livestock.type = cursor.getString(4);
+//                        livestock.sex = cursor.getString(5);
+//                        livestock.status = cursor.getString(6);
+//                        livestock.location = cursor.getString(7);
+//                        livestock.sire = cursor.getString(8);
+//                        livestock.dam = cursor.getString(9);
+//                        livestock.birthDate = cursor.getString(10);
+//
+//                        allLivestock.add(livestock);
 
-                        allLivestock.add(livestock);
+                        allLivestockAnimalIds.add(cursor.getString(0));
 
                         //Toast.makeText(getApplicationContext(), "Data received from db: " + livestock.db_id + " barcode text: " + livestock.animal_id, Toast.LENGTH_SHORT).show();
                     } while (cursor.moveToNext());
@@ -201,7 +208,8 @@ public class Inventory extends Activity {
 
 
 
-        return allLivestock;
+//        return allLivestock;
+        return allLivestockAnimalIds;
 
     }
 

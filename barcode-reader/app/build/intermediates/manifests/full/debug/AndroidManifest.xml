@@ -9,14 +9,18 @@
         android:minSdkVersion="9"
         android:targetSdkVersion="23" />
 
-    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <!-- Include required permissions for Google Mobile Ads to run -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -60,7 +64,9 @@
         <activity
             android:name="com.google.android.gms.samples.vision.barcodereader.BarcodeCaptureActivity"
             android:label="Scan Barcode" />
-        <activity android:name="com.google.android.gms.samples.vision.barcodereader.Login" >
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.Login"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -85,6 +91,18 @@
         <activity
             android:name="com.google.android.gms.samples.vision.barcodereader.Profile"
             android:screenOrientation="portrait" />
+        <activity android:name="com.google.android.gms.samples.vision.barcodereader.Injections" />
+        <activity android:name="com.google.android.gms.samples.vision.barcodereader.AddInjection" />
+        <activity android:name="com.google.android.gms.samples.vision.barcodereader.ModifyInjection" />
+        <activity
+            android:name="com.google.android.gms.samples.vision.barcodereader.AddAnimalInformation"
+            android:label="@string/title_activity_add_animal_information"
+            android:parentActivityName="com.google.android.gms.samples.vision.barcodereader.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.google.android.gms.samples.vision.barcodereader.MainActivity" />
+        </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
