@@ -13,6 +13,9 @@ bin/
 gen/
 out/
 
+#AndroidStudioFolder
+.idea/
+
 # Gradle files
 .gradle/
 build/
